@@ -6,7 +6,13 @@
   <artifactId>vetweb-store</artifactId>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-
+  
+  <parent>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-parent</artifactId>
+      <version>2.0.5.RELEASE</version>
+  </parent>
+  
   <name>vetweb-store</name>
   <url>http://maven.apache.org</url>
 
@@ -16,17 +22,24 @@
 
   <dependencies>
 
-	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
 	<dependency>
 	    <groupId>org.springframework.boot</groupId>
 	    <artifactId>spring-boot-starter-web</artifactId>
-	    <version>1.4.1.RELEASE</version>
+	</dependency>
+
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+
+	<dependency>
+	    <groupId>org.springframework.boot</groupId>
+	    <artifactId>spring-boot</artifactId>
 	</dependency>
   
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
     
