@@ -1,6 +1,7 @@
 package vetweb.store.tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -38,6 +39,16 @@ public class EntityTests {
 		categoryDAO.save(category);
 		Category queryResult = categoryDAO.findByDescription("Test");
 		assertEquals(category, queryResult);
+	}
+	
+	@Test
+	public void queryWithOperatorTest() {
+		Category category = new Category("Test");
+		categoryDAO.save(category);
+		Category lower = categoryDAO.findByDescription("Tes");
+		assertNull(lower);
+		Category ignoreCase = categoryDAO.findByDescriptionContainingIgnoreCase("tes");
+		assertEquals(category, ignoreCase);
 	}
 
 }
