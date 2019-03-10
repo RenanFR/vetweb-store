@@ -208,6 +208,13 @@
 			<a href="#">The Store</a>
 			<span>|</span>
 			<a href="#">Contact</a>
+			<span>|</span>
+			<span th:text="#{language}"></span>:
+			<select id="locales">
+			    <option value=""></option>
+			    <option value="en" th:text="#{en}"></option>
+			    <option value="pt" th:text="#{pt}"></option>
+			</select>			
 		</p>
 		<p class="right">
 			&copy; 2010 Shop Around.
@@ -218,7 +225,18 @@
 	
 </div>	
 <!-- End Shell -->
-	
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    $("#locales").change(function () {
+	    	console.log('change');
+	        var selectedOption = $('#locales').val();
+	        if (selectedOption != ''){
+	            window.location.replace('?locale=' + selectedOption);
+	        }
+	    });
+	});
+	</script>
 	
 </body>
 </html>
