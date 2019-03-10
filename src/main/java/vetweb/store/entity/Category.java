@@ -10,6 +10,13 @@ public class Category extends AbstractEntity{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	public Category() {
+	}
+	
+	public Category(String description) {
+		this.description = description;
+	}
+
 	private String description;
 
 	public String getDescription() {
