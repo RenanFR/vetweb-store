@@ -4,6 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +51,18 @@ public class EntityTests {
 		assertNull(lower);
 		Category ignoreCase = categoryDAO.findByDescriptionContainingIgnoreCase("tes");
 		assertEquals(category, ignoreCase);
+	}
+	
+	@Test
+	public void customQueryTest() {
+		Category cat = new Category("cat");
+		Category category = new Category("category");
+		Category newCategory = new Category("new");
+		categoryDAO.save(cat);
+		categoryDAO.save(category);
+		categoryDAO.save(newCategory);
+		List<Category> listLikeDescription = categoryDAO.findLikeDescription("cat");
+		assertTrue(listLikeDescription.size() == 2);
 	}
 
 }
