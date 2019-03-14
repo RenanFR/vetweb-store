@@ -8,9 +8,9 @@
 	
 		<!-- Content -->
 		<div id="content" layout:fragment="content">
-			<h1 th:text="#{hello}"></h1>
+			<h1 th:text="#{newCategory}"></h1>
 				<div class="panel-body">
-					<form class="form-horizontal" th:object="${post}" th:action="@{/save}" method="POST" style="margin: 10px">
+					<form class="form-horizontal" th:object="${category}" th:action="@{/categories/save}" method="post" style="margin: 10px">
 						<div class="form-group">
 		 					<fieldset>
 								<div class="form-group row">
@@ -19,44 +19,26 @@
 											<span th:text="${detailedError.message}"></span>
 										</div>
 									</div>
-								</div> 					
+								</div>
 								<div class="form-group row">
 								    <div class="col-md-1">
-								        <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
+								        <input type="hidden" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"/>
 								    </div>
 								 </div>
-								<div class="form-group row">                                                          
-									<div class="col-md-4" th:classappend="${#fields.hasErrors('autor')}? 'has-error'">
-									    <label>Autor</label>
-									    <input type="text" class="form-control input-sm" th:field="*{autor}" autofocus="autofocus" placeholder="Informe o autor" maxlength="50"/>
+								<div class="form-group row">
+									<div class="col-md-4" th:classappend="${#fields.hasErrors('description')}? 'has-error'">
+										<label th:text="#{description}"></label>
+										<textarea class="form-control input-sm" th:field="*{description}" cols="5" rows="5" placeholder="Informe o texto"></textarea>
 									</div>
 								</div>
-								<div class="form-group row">
-									<div class="col-md-4" th:classappend="${#fields.hasErrors('titulo')}? 'has-error'">
-										<label>T&iacute;tulo</label> 
-										<input type="text" class="form-control input-sm" th:field="*{titulo}" maxlength="150" placeholder="Informe o título"/>
-									</div>
-								</div>
-								<div class="form-group row">
-									<div class="col-md-2" th:classappend="${#fields.hasErrors('data')}? 'has-error'">
-										<label>Data</label> 
-										<input type="date" class="form-control input-sm" th:field="*{data}"/>
-									</div>
-								</div>						
-								<div class="form-group row">
-									<div class="col-md-4" th:classappend="${#fields.hasErrors('texto')}? 'has-error'">
-										<label>Texto</label>
-										<textarea class="form-control input-sm" th:field="*{texto}" cols="5" rows="5" placeholder="Informe o texto"></textarea>
-									</div>
-								</div>						
 							</fieldset>
 						</div>
 						<div class="form-group row">
-							<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-							<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+							<button type="submit" class="btn btn-sm btn-primary"><div th:text="#{save}"></div></button>
+							<a th:href="@{/}" class="btn btn-sm btn-default"><div th:text="#{cancel}"></div></a>
 						</div>
 					</form>
-				</div>			
+				</div>
 		</div>
 		<!-- End Content -->
 		

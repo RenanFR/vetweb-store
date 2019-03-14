@@ -26,4 +26,12 @@ public class CategoryService {
 		return this.categoryDAO.findByDescription(description);
 	}
 	
+	public Category findById(Long id) {
+		return this.categoryDAO.findById(id).get();
+	}
+	
+	public void delete(Category category) {
+		categoryDAO.delete(category);
+	}
+	
 }
