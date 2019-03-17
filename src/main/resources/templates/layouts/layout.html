@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="vetwebStore">
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Vetweb Store</title>
@@ -12,9 +12,12 @@
 	<meta name="description" content="Shop Around - Great free html template for on-line shop. Use it as a start point for your on line business. The template can be easily implemented in many open source E-commerce platforms" />
 	
 	<!-- JS -->
-	<script th:src="@{/js/jquery-1.4.1.min.js}" type="text/javascript"></script>	
-	<script th:src="@{/js/jquery.jcarousel.pack.js}" type="text/javascript"></script>	
-	<script th:src="@{/js/jquery-func.js}" type="text/javascript"></script>	
+	<script th:src="@{/js/library/jquery/jquery-1.4.1.min.js}" type="text/javascript"></script>	
+	<script th:src="@{/js/library/jquery/jquery.jcarousel.pack.js}" type="text/javascript"></script>	
+	<script th:src="@{/js/library/jquery/jquery-func.js}" type="text/javascript"></script>
+	<script th:src="@{/js/library/angular/angular.min.js}" type="text/javascript"></script>
+	<script th:src="@{/js/custom/modules/main.js}" type="text/javascript"></script>
+	<script th:src="@{/js/custom/controllers/category-controller.js}" type="text/javascript"></script>
 	<!-- End JS -->
 	
 </head>
@@ -100,23 +103,11 @@
 			<!-- End Search -->
 			
 			<!-- Categories -->
-			<div class="box categories">
+			<div class="box categories" ng-controller=CategoryController>
 				<h2>Categories <span></span></h2>
 				<div class="box-content">
 					<ul>
-					    <li><a href="#">Category 1</a></li>
-					    <li><a href="#">Category 2</a></li>
-					    <li><a href="#">Category 3</a></li>
-					    <li><a href="#">Category 4</a></li>
-					    <li><a href="#">Category 5</a></li>
-					    <li><a href="#">Category 6</a></li>
-					    <li><a href="#">Category 7</a></li>
-					    <li><a href="#">Category 8</a></li>
-					    <li><a href="#">Category 9</a></li>
-					    <li><a href="#">Category 10</a></li>
-					    <li><a href="#">Category 11</a></li>
-					    <li><a href="#">Category 12</a></li>
-					    <li class="last"><a href="#">Category 13</a></li>
+					    <li ng-repeat="category in categories"><a href="/vetweb/store/categories/edit/{{category.id}}">{{category.description}}</a></li>
 					</ul>
 				</div>
 			</div>

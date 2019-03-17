@@ -1,0 +1,1 @@
+angular.module('vetwebStore', []);//Main module for application start and load dependent modules

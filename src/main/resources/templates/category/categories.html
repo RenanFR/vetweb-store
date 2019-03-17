@@ -9,6 +9,7 @@
 		<!-- Content -->
 		<div id="content" layout:fragment="content">
 			<h1 th:text="#{listCategories}"></h1>
+		   		<a class="btn btn-sm btn-primary" th:href="@{/categories/form}" ><div th:text="#{form}"></div></a>
 				<div class="panel-body">
 					<div class="table-responsive">
 						<table class="table table-sm table-striped table-hover table-bordered">
@@ -25,8 +26,7 @@
 									<td th:text="${category.description}"></td>
 									<td>
 										<div class="btn-group pull-right">
-									   		<a class="btn btn-sm btn-primary" th:href="@{/categories/form}" ><div th:text="#{form}"></div></a>
-									   		<a class="btn btn-sm btn-primary" th:href="@{/categories/edit/{id}(id=${category.id})}" ><div th:text="#{edit}"></div></a>
+									   		<a class="btn btn-sm btn-primary" th:href="@{/categories/edit/{id}(id=${category.id})}"><div th:text="#{edit}"></div></a>
 									   		<a class="delete btn btn-sm btn-danger" th:href="@{/categories/delete/{id}(id=${category.id})}"><div th:text="#{delete}"></div></a>
 									   </div>
 									</td>
