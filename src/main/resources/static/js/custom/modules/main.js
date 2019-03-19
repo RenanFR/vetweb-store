@@ -1,1 +1,1 @@
-angular.module('vetwebStore', []);//Main module for application start and load dependent modules
+angular.module('vetwebStore', ['customDirectives']);//Main module for application start and load dependent modules
