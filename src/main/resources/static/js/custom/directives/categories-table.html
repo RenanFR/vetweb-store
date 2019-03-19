@@ -1,9 +1,8 @@
 <!-- Categories -->
-<div class="box categories">
-	<h2>Categories <span></span></h2>
+<div class="box categories" ng-controller="CategoryController">
+	<h2>{{h2Text}} <span></span></h2>
 	<div class="box-content">
 		<ul ng-transclude>
-<!-- 		    <li ng-repeat="category in categories"><a href="/vetweb/store/categories/edit/{{category.id}}">{{category.description}}</a></li> -->
 		</ul>
 	</div>
 </div>

@@ -13,5 +13,6 @@ angular.module('vetwebStore').controller('CategoryController', function($scope, 
     	.error(function(error) {
     		console.log(error);
     	});
-    //The request function are asynchronous and returns a promise object in which we can use callback actions when the promise returns  
+    //The request function are asynchronous and returns a promise object in which we can use callback actions when the promise returns
+    $scope.h2Text = "Categories";
 });
